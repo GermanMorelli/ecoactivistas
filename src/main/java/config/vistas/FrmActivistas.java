@@ -4,6 +4,7 @@
  */
 package config.vistas;
 
+import com.toedter.calendar.JDateChooser;
 import controller.ActivistaController;
 import java.sql.SQLException;
 import java.util.Date;
@@ -22,6 +23,7 @@ public class FrmActivistas extends javax.swing.JPanel {
     public FrmActivistas() {
         initComponents();
         acController = new ActivistaController();
+        btnEliminar.setVisible(false);
         cargarActivistas();
     }
 
@@ -94,12 +96,22 @@ public class FrmActivistas extends javax.swing.JPanel {
 
             }
         ));
+        tblActivistas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblActivistasMouseClicked(evt);
+            }
+        });
         scrActivistas.setViewportView(tblActivistas);
 
         btnGuardar.setText("GUARDAR");
         btnGuardar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnGuardarMouseClicked(evt);
+            }
+        });
+        btnGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuardarActionPerformed(evt);
             }
         });
 
@@ -120,6 +132,11 @@ public class FrmActivistas extends javax.swing.JPanel {
         txtBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtBuscarActionPerformed(evt);
+            }
+        });
+        txtBuscar.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtBuscarKeyReleased(evt);
             }
         });
 
@@ -221,10 +238,14 @@ public class FrmActivistas extends javax.swing.JPanel {
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         // TODO add your handling code here:
+        limpiarCampos();
+        btnGuardar.setText("GUARDAR");
+        btnEliminar.setVisible(false);
     }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
         // TODO add your handling code here:
+        eliminarActivista();
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void txtBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBuscarActionPerformed
@@ -235,6 +256,21 @@ public class FrmActivistas extends javax.swing.JPanel {
         // TODO add your handling code here:
         
     }//GEN-LAST:event_btnGuardarMouseClicked
+
+    private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
+        // TODO add your handling code here:
+        guardarActivista();
+    }//GEN-LAST:event_btnGuardarActionPerformed
+
+    private void tblActivistasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblActivistasMouseClicked
+        // TODO add your handling code here:
+        cargarDatos();
+    }//GEN-LAST:event_tblActivistasMouseClicked
+
+    private void txtBuscarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscarKeyReleased
+        // TODO add your handling code here:
+        buscarActivista();
+    }//GEN-LAST:event_txtBuscarKeyReleased
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -268,49 +304,101 @@ public class FrmActivistas extends javax.swing.JPanel {
         txtTelefono.setText("");
     }
     
-    //Metodo para guardar un activista en la BD
-    private void guardarActivista(){
+    private void eliminarActivista(){
         try{
-            String nombre = txtNombre.getText();
-            String telefono = txtTelefono.getText();
-            Date fchIngreso = (Date)txtFchIngreso.getDate();
+            int id = Integer.parseInt(txtID.getText());
             
-            if(nombre.isEmpty() || telefono.isEmpty() || fchIngreso == null){
-                JOptionPane.showMessageDialog(
-                        this, 
-                        "Todos los campos son obligatorios",
-                        "Error",
-                        JOptionPane.WARNING_MESSAGE);
+            
+            int confirm = JOptionPane.showConfirmDialog(this, "Seguro que desea eliminar a este activista?", "Confirmar eliminación", JOptionPane.YES_NO_OPTION);
+            if(confirm == JOptionPane.YES_OPTION){
+                boolean exito = acController.eliminarActivista(id);
+                
+                if(exito){
+                    JOptionPane.showMessageDialog(this, "Se ha eliminado al activista correctamente");
+                }else{
+                    JOptionPane.showMessageDialog(this, "Hubo un error al borrar al activista", "Error", JOptionPane.ERROR_MESSAGE);
+                }
+                
+                cargarActivistas();
+                limpiarCampos();
+            }else{
                 return;
             }
-            if(btnGuardar.getText().equals("GUARDAR")){
-                boolean exito = acController.agregarActivista(nombre, telefono, (java.sql.Date) fchIngreso);
-                
-                if(exito){
-                    JOptionPane.showMessageDialog(this, "Activista guardado exitosamente");
-                }else{
-                    JOptionPane.showMessageDialog(this, "Hubo un problema al agregar al activista", "Error", JOptionPane.ERROR_MESSAGE);
-                }
-            }else{
-                int id = Integer.parseInt(txtID.getText());
-                
-                boolean exito = acController.actualizarActivista(id, nombre, telefono, (java.sql.Date) fchIngreso);
-                if(exito){
-                    JOptionPane.showMessageDialog(this, "Activista Actualizado con exito");
-                }else{
-                    JOptionPane.showConfirmDialog(this, "Hubo un error al actualizar el activista","Error", JOptionPane.ERROR_MESSAGE);
-                }
-            }
-            
-            cargarActivistas();
-            limpiarCampos();
-                    
         }catch(Exception ex){
-            
-            JOptionPane.showMessageDialog(this, "Error: "+ex, "ERROR", JOptionPane.ERROR_MESSAGE);
-            
+            JOptionPane.showMessageDialog(this, "Error: "+ex, "Error", JOptionPane.ERROR_MESSAGE);
         }
+        
+        
+    }
+    
+    //Metodo para cargar datos en los TXT
+    private void cargarDatos(){
+        int fila = tblActivistas.getSelectedRow();
+        if(fila >= 0){
+            txtID.setText(tblActivistas.getValueAt(fila, 0).toString());
+            txtNombre.setText(tblActivistas.getValueAt(fila, 1).toString());
+            txtTelefono.setText(tblActivistas.getValueAt(fila, 2).toString());
+            txtFchIngreso.setDate((Date)tblActivistas.getValueAt(fila, 3));
             
+            btnGuardar.setText("ACTUALIZAR");
+            btnEliminar.setVisible(true);
+        }
+    }
+    
+    //Metodo para guardar un activista en la BD
+        private void guardarActivista(){
+         try{
+             String nombre = txtNombre.getText();
+             String telefono = txtTelefono.getText();
+             java.util.Date fechaUtil = txtFchIngreso.getDate();
+
+             if(nombre.isEmpty() || telefono.isEmpty() || fechaUtil == null){
+                 JOptionPane.showMessageDialog(
+                         this, 
+                         "Todos los campos son obligatorios",
+                         "Error",
+                         JOptionPane.WARNING_MESSAGE);
+                 return;
+             }
+
+             // 🔹 Convertimos a java.sql.Date
+             java.sql.Date fchIngreso = new java.sql.Date(fechaUtil.getTime());
+
+             if(btnGuardar.getText().equals("GUARDAR")){
+                 boolean exito = acController.agregarActivista(nombre, telefono, fchIngreso);
+
+                 if(exito){
+                     JOptionPane.showMessageDialog(this, "Activista guardado exitosamente");
+                 }else{
+                     JOptionPane.showMessageDialog(this, "Hubo un problema al agregar al activista", "Error", JOptionPane.ERROR_MESSAGE);
+                 }
+             }else{
+                 int id = Integer.parseInt(txtID.getText());
+
+                 boolean exito = acController.actualizarActivista(id, nombre, telefono, fchIngreso);
+
+                 if(exito){
+                     JOptionPane.showMessageDialog(this, "Activista actualizado con éxito");
+                 }else{
+                     JOptionPane.showMessageDialog(this, "Hubo un error al actualizar el activista","Error", JOptionPane.ERROR_MESSAGE);
+                 }
+             }
+
+             cargarActivistas();
+             limpiarCampos();
+
+         }catch(Exception ex){
+             JOptionPane.showMessageDialog(this, "Error: "+ex.getMessage(), "ERROR", JOptionPane.ERROR_MESSAGE);
+         }
+     }
+        
+    private void buscarActivista(){
+        String nombre = txtBuscar.getText().trim();
+        if(nombre.isEmpty()){
+            cargarActivistas();
+        }else{
+            tblActivistas.setModel(acController.obtenerTablaActivistasPorFiltro(nombre));
+        }
     }
 
 }

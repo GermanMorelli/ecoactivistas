@@ -17,4 +17,5 @@ public interface IActivistaDAO {
     List<Activista> obtenerTodos();
     boolean actualizar(Activista activista);
     boolean eliminar(int idActivista);
+    List<Activista> obtenerPorNombre(String nombre);
 }

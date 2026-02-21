@@ -232,7 +232,7 @@ public class FrmClientes extends javax.swing.JPanel {
         tblClientes.setModel(clController.obtenerTablaClientes());  
     }
 
-        private void guardarCliente() {
+    private void guardarCliente() {
         try {
             // 1. Tomar datos de los campos
             String nombre = txtNombre.getText().trim();
