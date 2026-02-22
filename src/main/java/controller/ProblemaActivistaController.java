@@ -8,6 +8,7 @@ import dao.ProblemaActivistaDAO;
 import interfaces.IProblemaActivistaDAO;
 import model.ProblemaActivista;
 import java.util.List;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -61,4 +62,35 @@ public class ProblemaActivistaController {
         }
         return paDAO.eliminar(idProblema, idActivista);
     }
+    
+    public DefaultTableModel obtenerTablaPorActivista(int idActivista) {
+        String[] columnas = {"ID Problema", "ID Activista"};
+        DefaultTableModel modelo = new DefaultTableModel(null, columnas);
+        List<ProblemaActivista> lista = obtenerPorActivista(idActivista);
+        if(lista != null){
+            for (ProblemaActivista pa : lista) {
+                modelo.addRow(new Object[]{
+                    pa.getIdProblema(),
+                    pa.getIdActivista()
+                });
+            }
+        }
+        return modelo;
+    }
+    
+    public DefaultTableModel obtenerTablaPorProblema(int idProblema) {
+        String[] columnas = {"ID Problema", "ID Activista"};
+        DefaultTableModel modelo = new DefaultTableModel(null, columnas);
+        List<ProblemaActivista> lista = obtenerPorProblema(idProblema);
+        if(lista != null){
+            for (ProblemaActivista pa : lista) {
+                modelo.addRow(new Object[]{
+                    pa.getIdProblema(),
+                    pa.getIdActivista()
+                });
+            }
+        }
+        return modelo;
+    }
 }
+
