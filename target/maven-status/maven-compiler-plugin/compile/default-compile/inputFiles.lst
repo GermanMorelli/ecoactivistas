@@ -1,23 +1,24 @@
-C:\Users\GILZ\Documents\ITSON\BASES AVANZADAS\ecosistemaxddd\EcoActivistas_CodigoBase-main\src\main\java\config\ConexionDB.java
-C:\Users\GILZ\Documents\ITSON\BASES AVANZADAS\ecosistemaxddd\EcoActivistas_CodigoBase-main\src\main\java\config\vistas\DlgBuscarClientes.java
-C:\Users\GILZ\Documents\ITSON\BASES AVANZADAS\ecosistemaxddd\EcoActivistas_CodigoBase-main\src\main\java\config\vistas\FrmActivistas.java
-C:\Users\GILZ\Documents\ITSON\BASES AVANZADAS\ecosistemaxddd\EcoActivistas_CodigoBase-main\src\main\java\config\vistas\FrmClientes.java
-C:\Users\GILZ\Documents\ITSON\BASES AVANZADAS\ecosistemaxddd\EcoActivistas_CodigoBase-main\src\main\java\config\vistas\FrmPrincipal.java
-C:\Users\GILZ\Documents\ITSON\BASES AVANZADAS\ecosistemaxddd\EcoActivistas_CodigoBase-main\src\main\java\config\vistas\FrmProblemas.java
-C:\Users\GILZ\Documents\ITSON\BASES AVANZADAS\ecosistemaxddd\EcoActivistas_CodigoBase-main\src\main\java\controller\ActivistaController.java
-C:\Users\GILZ\Documents\ITSON\BASES AVANZADAS\ecosistemaxddd\EcoActivistas_CodigoBase-main\src\main\java\controller\ClienteController.java
-C:\Users\GILZ\Documents\ITSON\BASES AVANZADAS\ecosistemaxddd\EcoActivistas_CodigoBase-main\src\main\java\controller\ProblemaActivistaController.java
-C:\Users\GILZ\Documents\ITSON\BASES AVANZADAS\ecosistemaxddd\EcoActivistas_CodigoBase-main\src\main\java\controller\ProblemaController.java
-C:\Users\GILZ\Documents\ITSON\BASES AVANZADAS\ecosistemaxddd\EcoActivistas_CodigoBase-main\src\main\java\dao\ActivistaDAO.java
-C:\Users\GILZ\Documents\ITSON\BASES AVANZADAS\ecosistemaxddd\EcoActivistas_CodigoBase-main\src\main\java\dao\ClienteDAO.java
-C:\Users\GILZ\Documents\ITSON\BASES AVANZADAS\ecosistemaxddd\EcoActivistas_CodigoBase-main\src\main\java\dao\ProblemaActivistaDAO.java
-C:\Users\GILZ\Documents\ITSON\BASES AVANZADAS\ecosistemaxddd\EcoActivistas_CodigoBase-main\src\main\java\dao\ProblemaDAO.java
-C:\Users\GILZ\Documents\ITSON\BASES AVANZADAS\ecosistemaxddd\EcoActivistas_CodigoBase-main\src\main\java\ecoactivistasbase\EcoActivistasBase.java
-C:\Users\GILZ\Documents\ITSON\BASES AVANZADAS\ecosistemaxddd\EcoActivistas_CodigoBase-main\src\main\java\interfaces\IActivistaDAO.java
-C:\Users\GILZ\Documents\ITSON\BASES AVANZADAS\ecosistemaxddd\EcoActivistas_CodigoBase-main\src\main\java\interfaces\IClienteDAO.java
-C:\Users\GILZ\Documents\ITSON\BASES AVANZADAS\ecosistemaxddd\EcoActivistas_CodigoBase-main\src\main\java\interfaces\IProblemaActivistaDAO.java
-C:\Users\GILZ\Documents\ITSON\BASES AVANZADAS\ecosistemaxddd\EcoActivistas_CodigoBase-main\src\main\java\interfaces\IProblemaDAO.java
-C:\Users\GILZ\Documents\ITSON\BASES AVANZADAS\ecosistemaxddd\EcoActivistas_CodigoBase-main\src\main\java\model\Activista.java
-C:\Users\GILZ\Documents\ITSON\BASES AVANZADAS\ecosistemaxddd\EcoActivistas_CodigoBase-main\src\main\java\model\Cliente.java
-C:\Users\GILZ\Documents\ITSON\BASES AVANZADAS\ecosistemaxddd\EcoActivistas_CodigoBase-main\src\main\java\model\Problema.java
-C:\Users\GILZ\Documents\ITSON\BASES AVANZADAS\ecosistemaxddd\EcoActivistas_CodigoBase-main\src\main\java\model\ProblemaActivista.java
+C:\Users\marki\OneDrive\Documentos\GitHub\EcoActivistas\ecoactivistas\src\main\java\config\ConexionDB.java
+C:\Users\marki\OneDrive\Documentos\GitHub\EcoActivistas\ecoactivistas\src\main\java\config\vistas\DlgBuscarClientes.java
+C:\Users\marki\OneDrive\Documentos\GitHub\EcoActivistas\ecoactivistas\src\main\java\config\vistas\FrmActivistas.java
+C:\Users\marki\OneDrive\Documentos\GitHub\EcoActivistas\ecoactivistas\src\main\java\config\vistas\FrmClientes.java
+C:\Users\marki\OneDrive\Documentos\GitHub\EcoActivistas\ecoactivistas\src\main\java\config\vistas\FrmPrincipal.java
+C:\Users\marki\OneDrive\Documentos\GitHub\EcoActivistas\ecoactivistas\src\main\java\config\vistas\FrmProblemas.java
+C:\Users\marki\OneDrive\Documentos\GitHub\EcoActivistas\ecoactivistas\src\main\java\config\vistas\FrmProblemasActivistas.java
+C:\Users\marki\OneDrive\Documentos\GitHub\EcoActivistas\ecoactivistas\src\main\java\controller\ActivistaController.java
+C:\Users\marki\OneDrive\Documentos\GitHub\EcoActivistas\ecoactivistas\src\main\java\controller\ClienteController.java
+C:\Users\marki\OneDrive\Documentos\GitHub\EcoActivistas\ecoactivistas\src\main\java\controller\ProblemaActivistaController.java
+C:\Users\marki\OneDrive\Documentos\GitHub\EcoActivistas\ecoactivistas\src\main\java\controller\ProblemaController.java
+C:\Users\marki\OneDrive\Documentos\GitHub\EcoActivistas\ecoactivistas\src\main\java\dao\ActivistaDAO.java
+C:\Users\marki\OneDrive\Documentos\GitHub\EcoActivistas\ecoactivistas\src\main\java\dao\ClienteDAO.java
+C:\Users\marki\OneDrive\Documentos\GitHub\EcoActivistas\ecoactivistas\src\main\java\dao\ProblemaActivistaDAO.java
+C:\Users\marki\OneDrive\Documentos\GitHub\EcoActivistas\ecoactivistas\src\main\java\dao\ProblemaDAO.java
+C:\Users\marki\OneDrive\Documentos\GitHub\EcoActivistas\ecoactivistas\src\main\java\ecoactivistasbase\EcoActivistasBase.java
+C:\Users\marki\OneDrive\Documentos\GitHub\EcoActivistas\ecoactivistas\src\main\java\interfaces\IActivistaDAO.java
+C:\Users\marki\OneDrive\Documentos\GitHub\EcoActivistas\ecoactivistas\src\main\java\interfaces\IClienteDAO.java
+C:\Users\marki\OneDrive\Documentos\GitHub\EcoActivistas\ecoactivistas\src\main\java\interfaces\IProblemaActivistaDAO.java
+C:\Users\marki\OneDrive\Documentos\GitHub\EcoActivistas\ecoactivistas\src\main\java\interfaces\IProblemaDAO.java
+C:\Users\marki\OneDrive\Documentos\GitHub\EcoActivistas\ecoactivistas\src\main\java\model\Activista.java
+C:\Users\marki\OneDrive\Documentos\GitHub\EcoActivistas\ecoactivistas\src\main\java\model\Cliente.java
+C:\Users\marki\OneDrive\Documentos\GitHub\EcoActivistas\ecoactivistas\src\main\java\model\Problema.java
+C:\Users\marki\OneDrive\Documentos\GitHub\EcoActivistas\ecoactivistas\src\main\java\model\ProblemaActivista.java

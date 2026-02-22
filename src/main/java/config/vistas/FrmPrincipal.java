@@ -24,6 +24,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
         pnlContenido.add(new FrmClientes(), "clientes");
         pnlContenido.add(new FrmActivistas(), "activistas");
         pnlContenido.add(new FrmProblemas(), "problemas");
+        pnlContenido.add(new FrmProblemasActivistas(), "problema-activistas");
     }
 
     /**
@@ -41,6 +42,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
         menuClientes = new javax.swing.JMenuItem();
         menuProblemas = new javax.swing.JMenuItem();
         menuActivistas = new javax.swing.JMenuItem();
+        menuProblemaActivistas = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -81,6 +83,14 @@ public class FrmPrincipal extends javax.swing.JFrame {
         });
         jMenu1.add(menuActivistas);
 
+        menuProblemaActivistas.setText("Problema-Activistas");
+        menuProblemaActivistas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuProblemaActivistasActionPerformed(evt);
+            }
+        });
+        jMenu1.add(menuProblemaActivistas);
+
         jMenuBar1.add(jMenu1);
 
         setJMenuBar(jMenuBar1);
@@ -114,6 +124,11 @@ public class FrmPrincipal extends javax.swing.JFrame {
         cl.show(pnlContenido, "activistas");
     }//GEN-LAST:event_menuActivistasActionPerformed
 
+    private void menuProblemaActivistasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuProblemaActivistasActionPerformed
+        CardLayout cl = (CardLayout) pnlContenido.getLayout();
+        cl.show(pnlContenido, "problema-activistas");
+    }//GEN-LAST:event_menuProblemaActivistasActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -144,6 +159,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem menuActivistas;
     private javax.swing.JMenuItem menuClientes;
+    private javax.swing.JMenuItem menuProblemaActivistas;
     private javax.swing.JMenuItem menuProblemas;
     private javax.swing.JPanel pnlContenido;
     // End of variables declaration//GEN-END:variables
